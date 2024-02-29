@@ -1,0 +1,67 @@
+@import "./global.scss";
+
+.header {
+  padding: 15px 0;
+  display: flex;
+  text-decoration: none;
+
+  cursor: pointer;
+  align-items: center;
+  width: 100%;
+
+  h1 {
+    width: 400px;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+    color: #3d6f9d;
+    transition: 0.3s;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .navbar-container {
+    padding: 0 60px;
+    display: flex;
+    width: 100%;
+  }
+
+  ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    font-size: 1.1rem;
+
+    a {
+      border-bottom: 2px solid #fff;
+
+      &:hover,
+      &:focus {
+        color: #007aff;
+        border-color: #007aff;
+      }
+    }
+  }
+
+  .navbar {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+  }
+
+  .booking-button {
+    margin-left: 25px;
+    background: #1977cc;
+    color: #fff;
+    border-radius: 50px;
+    padding: 8px 25px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+    display: inline-block;
+    font-size: 1.1rem;
+  }
+}
