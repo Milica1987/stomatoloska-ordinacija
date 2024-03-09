@@ -1,0 +1,27 @@
+{
+    "doctors": [
+        {
+            "id": 1,
+            "name": "Dr. Petar Petrović",
+            "position": "Glavni stomatolog",
+            "img": "doctors-1.jpeg",
+            "description": "Dr. Petar Petrović rođen u Beogradu 1988. godine je osnovao našu stomatološku ordinaciju.Sada  sa preko 30 godina iskustva u stomatologiji, predstavlja jednog od najboljih stručnjaka u oblasti stomatološke protetike."
+            
+        },
+        {
+            "id":2,
+            "name": "Dr. Jovana Jovanović",
+            "position": "Specijalista stomatološke protetike",
+            "img": "doctors-2.jpeg",
+            "description": "Dr. Jovana Jovanović počinje da sa praksom i radom u ordinaciji još tokom studija. Diplomirala je na Stomatološkom fakultetu  u Beogradu 2018. godine. Specijalizovana za ortopediju vilica i protetiku."
+        },
+        {
+            "id":3,
+            "name": "Dr. Ana Petrović",
+            "position": "Stomatolog",
+            "img": "doctors-3.jpeg",
+            "description": "Dr. Ana Petrović Ekspert je za digitalni dizajn osmeha i druge tehnike koje uključuju računare i 3D modelovanje."
+        }
+
+    ]
+}

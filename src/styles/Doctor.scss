@@ -1,0 +1,70 @@
+@import "./global.scss";
+
+.doctor-container {
+  padding: 10px;
+  width: 50%;
+}
+
+.doctor-content {
+  display: flex;
+  justify-content: center;
+  min-height: 250px;
+  padding: 30px;
+  box-shadow: 0px 2px 15px rgba(44, 73, 100, 0.08);
+  border-radius: 10px;
+
+  .doctor-img {
+    overflow: hidden;
+    width: 180px;
+    height: 180px;
+    flex-shrink: 0;
+    border-radius: 50%;
+
+    .img {
+      max-width: 100%;
+      height: auto;
+      transition: ease-in-out 0.3s;
+      vertical-align: middle;
+    }
+    .img:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .doctor-info {
+    font-weight: 700;
+    text-align: left;
+    color: #2c4964;
+    font-family: "Raleway", sans-serif;
+    padding-left: 20px;
+
+    span {
+      display: block;
+      font-size: 15px;
+      padding-bottom: 10px;
+      position: relative;
+      font-weight: 500;
+
+      &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 50px;
+        height: 1px;
+        background: #b2c8dd;
+        bottom: 0;
+        left: 0;
+      }
+    }
+
+    h4 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      text-align: left;
+      margin: 10px 0 0 0;
+    }
+  }
+}
