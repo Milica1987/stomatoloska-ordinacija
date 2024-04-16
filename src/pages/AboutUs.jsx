@@ -1,4 +1,5 @@
-import "@styles/global.scss";
+import "@styles/AboutUs.scss";
+
 
 const AboutUs = () => {
   return (
@@ -21,7 +22,14 @@ const AboutUs = () => {
         Naša poslovna filozofija zasniva se na stručnom i kvalitetnom pristupu
         svakom pacijentu pojedinačno.
       </p>
+      <div className="pictures">
+        <img src="/about_us/ordinacija.jpeg" alt="ordinacija" />
+        <img src="/about_us/ordinacija2.jpeg" alt="ordinacija2" />
+
+      </div>
     </div>
+    
+    
   );
 };
 

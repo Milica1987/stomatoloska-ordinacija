@@ -1,0 +1,37 @@
+@import "./global.scss";
+
+.price-list-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: "Open Sans", sans-serif;
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      font-size: 1rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: #1977cc;
+      
+    }
+    tr:nth-child(2) td:first-child,
+    tr:nth-child(15) td:first-child,
+    tr:nth-child(21) td:first-child {
+      font-weight: bold;
+      font-size: 1em;
+    }
+  }
+}

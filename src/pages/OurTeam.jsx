@@ -17,7 +17,7 @@ const OurTeam = () => {
   });
 
   return (
-    <div>
+    <div className="our-team">
       <h2>Naš lekarski tim</h2>
       <p>Iako najčešće u praksi rešavamo postojeće stomatološke probleme, snažno se zalažemo za preventivnu negu. O zdavlju i lepoti Vaših zuba brinu:</p>
       <div className="doctors">

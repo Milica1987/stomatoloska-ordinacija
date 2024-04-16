@@ -1,0 +1,72 @@
+@import "./global.scss";
+
+.services-container {
+  padding-left: 100px;
+  padding-right: 100px;
+
+  .section-title {
+    padding-bottom: 30px;
+    p {
+      padding-bottom: 15px;
+    }
+  }
+
+  .services {
+    display: flex;
+
+    ul {
+      flex-direction: column !important;
+
+      li {
+        list-style: none;
+      }
+    }
+
+    .nav-link {
+      border: 0;
+      padding: 12px 15px 12px 0;
+      transition: 0.3s;
+      color: #2c4964;
+      border-radius: 0;
+      border-right: 2px solid #ebf1f6;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      font-family: "Open Sans", sans-serif;
+
+      &:hover {
+        color: #3291e6;
+      }
+    }
+
+    .second {
+      display: flex;
+      flex: 0 0 auto;
+      width: 75%;
+      font-family: "Open Sans", sans-serif;
+
+      p {
+        font-size: 15px;
+        font-weight: 400;
+        color: rgb(44, 73, 100);
+
+        line-height: 24px;
+      }
+
+      .img-container {
+        min-width: 35%;
+        overflow: hidden;
+
+        img {
+          max-height: 250px;
+        }
+      }
+
+      .service {
+        padding: 0px 30px;
+      }
+    }
+  }
+}

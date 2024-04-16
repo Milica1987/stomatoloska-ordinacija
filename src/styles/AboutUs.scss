@@ -1,0 +1,19 @@
+.more-info {
+  padding-left: 100px;
+  padding-right: 100px;
+
+  p {
+    margin-top: 25px;
+  }
+
+  .pictures {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pictures img {
+    padding: 30px 20px;
+    width: 45%;
+  }
+}

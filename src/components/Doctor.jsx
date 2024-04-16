@@ -1,9 +1,6 @@
-/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 
 import "@styles/Doctor.scss";
-
-import "@helpers/apiService.js";
 
 const Doctor = ({ doctor }) => {
   return (
