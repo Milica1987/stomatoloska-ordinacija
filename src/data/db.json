@@ -26,54 +26,60 @@
     {
       "id": 1,
       "doctorId": 1,
-      "date": "2024-03-18",
+      "date": "2024-04-16",
       "time": "10:00",
       "service": "Izbeljivanje zuba",
       "patient": "Pera Peric"
     },
     {
-      "id": 2,
-      "doctorId": 1,
-      "date": "2024-03-18",
-      "time": "12:00",
-      "service": "Izbeljivanje zuba",
-      "patient": "Pera Peric"
-    },
-    {
-      "id": 3,
-      "doctorId": 1,
-      "date": "2024-03-19",
-      "time": "12:00",
-      "service": "Izbeljivanje zuba",
-      "patient": "Pera Peric"
-    },
-    {
-      "id": 4,
-      "doctorId": 2,
-      "date": "2024-03-18",
-      "time": "14:00",
-      "service": "Izbeljivanje zuba",
-      "patient": "Pera Peric"
-    },
-    {
-      "id": 5,
       "doctorId": "2",
-      "date": "2024-03-22",
+      "date": "2024-05-08",
+      "phone": "32",
+      "email": "milicapuresevic@yahoo.com",
+      "time": "09:00",
+      "service": "Popravka i lečenje zuba",
+      "patient": "dsa",
+      "id": 2
+    },
+    {
+      "doctorId": "1",
+      "date": "2024-05-08",
+      "phone": "ewqeqw",
+      "email": "milicapuresevic@yahoo.com",
+      "time": "09:00",
+      "service": "Skidanje kamenca i poliranje",
+      "patient": "ds",
+      "id": 3
+    },
+    {
+      "doctorId": "2",
+      "date": "2024-05-08",
+      "phone": "32131",
+      "email": "milica.mitic2021@gmail.com",
+      "time": "10:00",
+      "service": "Hollywood smile",
+      "patient": "ew",
+      "id": 4
+    },
+    {
+      "doctorId": "1",
+      "date": "2024-05-08",
+      "phone": "afsaf",
+      "email": "milicapuresevic@yahoo.com",
       "time": "11:00",
       "service": "Hollywood smile",
-      "patient": "ewq",
-      "email": "milicapuresevic@yahoo.com",
-      "": "32"
+      "patient": "ab",
+      "id": 5
     },
     {
-      "id": 6,
-      "doctorId": "2",
-      "date": "2024-03-22",
-      "time": "11:00",
-      "service": "Hollywood smile",
-      "patient": "ewq",
-      "email": "milicapuresevic@yahoo.com",
-      "": "32"
+      "doctorId": "1",
+      "date": "2024-05-08",
+      "phone": "32131",
+      "email": "milica.mitic2021@gmail.com",
+      "time": "12:00",
+      "service": "Skidanje kamenca i poliranje",
+      "patient": "ds",
+      "id": 6
     }
   ]
 }

@@ -15,7 +15,7 @@ export const scheduleAppointment = async (appointment) => {
 };
 
 export const getAppointmentsForDoctorAndDate = async (doctorId, date) => {
-    const response = await axios.post(apiUrl + "/appointments?doctorId=" + doctorId + "&date=" + date);
+    const response = await axios.get(apiUrl + "/appointments?doctorId=" + doctorId + "&date=" + date);
     return response.data;
 }
 

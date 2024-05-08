@@ -186,7 +186,7 @@ const Services = () => {
                 </p>
               </div>
               <div className="img-container">
-                <img src="/services-img/ortodoncija.jpeg" alt="Ortodoncija" />
+                <img src="/services/ortodoncija.jpeg" alt="Ortodoncija" />
               </div>
             </>
           )}

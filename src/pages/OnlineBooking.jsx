@@ -4,7 +4,7 @@ import "@styles/global.scss";
 import "@styles/OnlineBooking.scss";
 
 import "@helpers/apiService.js";
-import TimeSlot from "../components/TimeSlot";
+import { useNavigate } from "react-router-dom";
 
 import { useState, useEffect, useRef } from "react";
 
@@ -13,40 +13,48 @@ import { fetchAllDoctors, scheduleAppointment } from "@helpers/apiService.js";
 import { useQuery, useMutation } from "@tanstack/react-query";
 
 import { format } from "date-fns";
+import { getAppointmentsForDoctorAndDate } from "../helpers/apiService";
+
+import Dialog from '@components/Dialog';
 
 const OnlineBooking = () => {
   const currentDate = format(new Date(), "yyyy-MM-dd");
 
-  const [timeSlot, setTimeSlot] = useState(null);
+  //const [timeSlot, setTimeSlot] = useState(null);
 
   const [errors, setErrors] = useState({});
 
-  const formRef = useRef(null);
+  const [isOpenDialog, setIsOpenDialog] = useState(false);
+
+  const navigate = useNavigate();
+
+  const selectedDoctorRef = useRef();
+  const selectedDateRef = useRef();
 
   const { isError, isLoading, data } = useQuery({
     queryKey: ["allDoctors"],
     queryFn: fetchAllDoctors,
   });
 
-  const { mutate } = useMutation({
-    mutationFn: scheduleAppointment,
-    onSuccess: (res) => {
-      console.log(res);
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
+  const [availableTermins, setAvailableTermins] = useState([
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+  ]);
 
-  const handleTimeSlotClick = async (timeSlotInfo) => {
-    setTimeSlot(timeSlotInfo.timeFrom);
+  const openDialog = () => {
+    setIsOpenDialog(true);
   };
 
-  useEffect(() => {
-    if (timeSlot !== null) {
-      formRef.current.requestSubmit();
-    }
-  }, [timeSlot]);
+  const closeDialog = () => {
+    setIsOpenDialog(false);
+    navigate("/");
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -54,15 +62,56 @@ const OnlineBooking = () => {
       doctorId: event.target.doctorId.value,
       date: event.target.date.value,
       phone: event.target.phone.value,
-      time: timeSlot,
+      email: event.target.email.value,
+      time: event.target.termin.value,
       service: event.target.service.value,
       patient: event.target.patient.value,
     };
 
     if (validateAppointment(appointment)) {
       console.log("spremno za slanje");
+      scheduleAppointment(appointment);
+      openDialog();
+     // alert('Vaš termin je uspešno zakazan');
+    //  navigate("/");
+      
     } else {
       console.log(JSON.stringify(errors));
+    }
+  };
+  const refreshTermins = async () => {
+    const selectedDoctor = selectedDoctorRef.current.value;
+    const selectedDate = selectedDateRef.current.value;
+    console.log("Selected Doctor:", selectedDoctor);
+    console.log("Selected Date:", selectedDate);
+    if (selectedDate && selectedDoctor > 0) {
+
+      const allTermins = [
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+      ];
+
+      const appointments = await getAppointmentsForDoctorAndDate(
+        selectedDoctorRef.current.value,
+        selectedDateRef.current.value
+      );
+      // Extract booked termins from appointments
+      const bookedTermins = appointments.map((appointment) => appointment.time);
+
+      // Filter available termins
+      const filteredTermins = allTermins.filter(
+        (termin) => !bookedTermins.includes(termin)
+      );
+
+      // Set available termins state
+      setAvailableTermins(filteredTermins);
+
     }
   };
 
@@ -81,7 +130,7 @@ const OnlineBooking = () => {
     });
 
     // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
     if (!emailRegex.test(appointment.email)) {
       errors.email = "Pogrešan format email adrese";
     }
@@ -95,16 +144,16 @@ const OnlineBooking = () => {
       }
     });
 
-    if (appointment.usluga === "Izaberite uslugu") {
-      errors.usloga = "Morate izabrati uslugu";
+    if (appointment.service === "Izaberite uslugu") {
+      errors.service = "Morate izabrati uslugu";
     }
 
     setErrors(errors);
-    return Object.keys(errors).length === 0; // Returns true if no errors
+    return Object.keys(errors).length === 0; 
   };
 
   return (
-    <form onSubmit={handleSubmit} ref={formRef}>
+    <form onSubmit={handleSubmit}>
       <div className="booking-container">
         <h2>Zakažite pregled</h2>
         <div className="booking">
@@ -119,8 +168,9 @@ const OnlineBooking = () => {
             <input placeholder="Email" name="email" />
 
             {errors.service && <div className="error">{errors.service}</div>}
+
             <select name="service">
-              <option value="0">Izaberite uslugu</option>
+              <option value="Izaberite uslugu">Izaberite uslugu</option>
               <option value="Hollywood smile">Hollywood smile</option>
               <option value="Popravka i lečenje zuba">
                 Popravka i lečenje zuba
@@ -136,7 +186,11 @@ const OnlineBooking = () => {
 
           <div className="booking-column2">
             {errors.doctorId && <div className="error">{errors.doctorId}</div>}
-            <select name="doctorId">
+            <select
+              name="doctorId"
+              onChange={refreshTermins}
+              ref={selectedDoctorRef}
+            >
               <option value="0">Izaberite doktora</option>
               {data &&
                 data.map((doctor) => (
@@ -147,83 +201,39 @@ const OnlineBooking = () => {
             </select>
 
             {errors.date && <div>{errors.date}</div>}
-            <input type="date" name="date" defaultValue={currentDate} />
+            <input
+              type="date"
+              name="date"
+              defaultValue={currentDate}
+              onChange={refreshTermins}
+              ref={selectedDateRef}
+            />
 
             <select name="termin">
-              <option value="">Izaberite termin</option>
-              <option value="09:00">09:00</option>
-              <option value="10:00">10:00</option>
-              <option value="11:00">11:00</option>
-              <option value="12:00">12:00</option>
-              <option value="13:00">13:00</option>
-              <option value="14:00">14:00</option>
-              <option value="15:00">15:00</option>
-              <option value="16:00">16:00</option>      
-            </select>
+              {availableTermins.length !== 0 ? (
+                <option>Izaberite termin</option>
+              ) : (
+                <option>Nema slobodnih termina</option>
+              )}
 
+              {availableTermins.map((termin) => (
+                <option key={termin} value={termin}>
+                  {termin}
+                </option>
+              ))}
+            </select>
             <button type="submit">Zakaži</button>
           </div>
-          {/* <div className="booking-column3">
-            <TimeSlot
-              key="09:00"
-              timeFrom="09:00"
-              timeTo="10:00"
-              booked={false}
-              onTimeSlotClick={handleTimeSlotClick}
-            />
-            <TimeSlot
-              key="10:00"
-              timeFrom="10:00"
-              timeTo="11:00"
-              booked={false}
-              onTimeSlotClick={handleTimeSlotClick}
-            />
-            <TimeSlot
-              key="11:00"
-              timeFrom="11:00"
-              timeTo="12:00"
-              booked={false}
-              onTimeSlotClick={handleTimeSlotClick}
-            />
-            <TimeSlot
-              key="12:00"
-              timeFrom="12:00"
-              timeTo="13:00"
-              booked={false}
-              onTimeSlotClick={handleTimeSlotClick}
-            />
-            <TimeSlot
-              key="13:00"
-              timeFrom="13:00"
-              timeTo="14:00"
-              booked={false}
-              onTimeSlotClick={handleTimeSlotClick}
-            />
-            <TimeSlot
-              key="14:00"
-              timeFrom="14:00"
-              timeTo="15:00"
-              booked={false}
-              onTimeSlotClick={handleTimeSlotClick}
-            />
-            <TimeSlot
-              key="15:00"
-              timeFrom="15:00"
-              timeTo="16:00"
-              booked={false}
-              onTimeSlotClick={handleTimeSlotClick}
-            />
-            <TimeSlot
-              key="16:00"
-              timeFrom="16:00"
-              timeTo="17:00"
-              booked={false}
-              onTimeSlotClick={handleTimeSlotClick}
-            />
-          </div> */}
         </div>
       </div>
+
+      <Dialog isOpen={isOpenDialog} onClose={closeDialog}>
+        <p>Vaš termin je uspešno zakazan!</p>
+      </Dialog>
+      
     </form>
+    
+    
   );
 };
 
