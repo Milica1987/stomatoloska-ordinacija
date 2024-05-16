@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 //style
-import "@styles/global.scss";
+import "@styles/Global.scss";
 import "@styles/OnlineBooking.scss";
 
 import "@helpers/apiService.js";
@@ -15,12 +15,10 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { getAppointmentsForDoctorAndDate } from "../helpers/apiService";
 
-import Dialog from '@components/Dialog';
+import Dialog from "@components/Dialog";
 
 const OnlineBooking = () => {
   const currentDate = format(new Date(), "yyyy-MM-dd");
-
-  //const [timeSlot, setTimeSlot] = useState(null);
 
   const [errors, setErrors] = useState({});
 
@@ -72,9 +70,6 @@ const OnlineBooking = () => {
       console.log("spremno za slanje");
       scheduleAppointment(appointment);
       openDialog();
-     // alert('Vaš termin je uspešno zakazan');
-    //  navigate("/");
-      
     } else {
       console.log(JSON.stringify(errors));
     }
@@ -85,7 +80,6 @@ const OnlineBooking = () => {
     console.log("Selected Doctor:", selectedDoctor);
     console.log("Selected Date:", selectedDate);
     if (selectedDate && selectedDoctor > 0) {
-
       const allTermins = [
         "09:00",
         "10:00",
@@ -111,7 +105,6 @@ const OnlineBooking = () => {
 
       // Set available termins state
       setAvailableTermins(filteredTermins);
-
     }
   };
 
@@ -130,7 +123,7 @@ const OnlineBooking = () => {
     });
 
     // Validate email format
-     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
     if (!emailRegex.test(appointment.email)) {
       errors.email = "Pogrešan format email adrese";
     }
@@ -149,7 +142,7 @@ const OnlineBooking = () => {
     }
 
     setErrors(errors);
-    return Object.keys(errors).length === 0; 
+    return Object.keys(errors).length === 0;
   };
 
   return (
@@ -230,10 +223,7 @@ const OnlineBooking = () => {
       <Dialog isOpen={isOpenDialog} onClose={closeDialog}>
         <p>Vaš termin je uspešno zakazan!</p>
       </Dialog>
-      
     </form>
-    
-    
   );
 };
 

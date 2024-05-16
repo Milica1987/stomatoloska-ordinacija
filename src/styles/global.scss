@@ -1,6 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
+
+
+:root {
+  --paragraph-color: #3d6f9d;
+  --header-color:  #2c4964;
+  --navbar-hover-color:  #007aff;
+  --services-header-bg-color: #1977cc;
+  --background-color: #ffffff;
+  --background-image: url("@assets/background.png");
+  --navbar-shadow: 0px 2px 15px rgba(25, 119, 204, 0.1);
+  --navbar-border: 2px solid #fff;
+  --booking-background:  #f1f7fd;
+
+}
+
+.dark {
+  --paragraph-color: #adb4c2;
+  --header-color:  #acb1be;
+  --navbar-hover-color:  #838db7;
+  --services-header-bg-color: #1b264c;
+  --background-color:   #0e111c;
+  --navbar-shadow: 0px 2px 15px rgb(29 133 227);
+  --background-image: url("@assets/background-dark.png");
+  --navbar-border: 2px solid #000;
+  --booking-background: #1f253c;
+ 
+
+
+  //background-color: var(--background-color);
+  
+
+}
+
+body {
+  background-color: var(--background-color);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -11,7 +48,7 @@ main {
   h2 {
     font-size: 32px;
     font-weight: bold;
-    color: #2c4964;
+    color: var(--header-color);
     margin-top: 20px;
     font-family: "Raleway", sans-serif;
     text-align: center;
@@ -22,12 +59,12 @@ main {
     font-weight: 600;
     margin-bottom: 20px;
     font-family: "Raleway", sans-serif;
-    color: #2c4964;
+    color: var(--header-color);
   }
   p {
     margin-top: 20px;
     font-family: "Raleway", sans-serif;
-    color: #3d6f9d;
+    color: var(--paragraph-color);//#3d6f9d;
     font-weight: 500;
   }
 

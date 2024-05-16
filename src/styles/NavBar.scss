@@ -1,4 +1,4 @@
-@import "./global.scss";
+@import "./Global.scss";
 
 .header {
   padding: 15px 0;
@@ -6,7 +6,8 @@
   cursor: pointer;
   align-items: center;
   width: 100%;
-  box-shadow: 0px 2px 15px rgba(25, 119, 204, 0.1);
+  box-shadow: var(--navbar-shadow);
+  background-color: var(--background-color);
 
   h1 {
     width: 400px;
@@ -15,13 +16,13 @@
     font-family: "Poppins", sans-serif;
     flex-shrink: 1;
     a {
-      color: #2c4964;
+      color: var(--header-color);
     }
   }
 
   a {
     text-decoration: none;
-    color: #3d6f9d;
+    color: var(--paragraph-color);
     transition: 0.3s;
     font-family: "Poppins", sans-serif;
   }
@@ -39,12 +40,11 @@
     font-size: 15px;
 
     a {
-      border-bottom: 2px solid #fff;
-
+      border-bottom:  var(--navbar-border);
       &:hover,
       &:focus {
-        color: #007aff;
-        border-color: #007aff;
+        color: var(--navbar-hover-color);
+        border-color: var(--navbar-hover-color);
       }
     }
   }
@@ -59,6 +59,7 @@
   .booking-button {
     margin-left: 25px;
     background: #1977cc;
+    border: none;
     color: #fff;
     border-radius: 50px;
     padding: 8px 25px;

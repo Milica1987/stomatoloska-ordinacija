@@ -1,9 +1,22 @@
 import { Link } from "react-router-dom";
+import  { useEffect } from 'react';
+import { darkMode } from "../zustand/store";
 
 //styles
 import "@styles/NavBar.scss";
 
 const NavBar = () => {
+
+  const { darkTheme, setDarkTheme}= darkMode();
+
+  useEffect(() => {
+    if (darkTheme) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  }, [darkTheme]);
+
   return (
     <header className="header">
       <div className="navbar-container">
@@ -29,6 +42,11 @@ const NavBar = () => {
             </li>
             <li>
               <Link to="/contact">Kontakt</Link>
+            </li>
+            <li>
+              <button className="booking-button" onClick={setDarkTheme}> 
+                Dark Mode
+              </button>
             </li>
           </ul>
           <Link className="booking-button" to="/booking">

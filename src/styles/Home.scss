@@ -1,7 +1,7 @@
-@import "./global.scss";
+@import "./Global.scss";
 
 .welcome-container {
-  background: url("@assets/background.png");
+  background: var(--background-image);
   height: 90vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,11 +20,13 @@
     cursor: pointer;
     transition: 0.5s;
     color: #fff;
+    background: var(--navbar-hover-color);
     background: #1977cc;
     text-decoration: none;
 
     &:hover {
       background-color: #3291e6;
+      background-color: var(--services-header-bg-color);
     }
   }
 }
@@ -41,11 +43,11 @@
   font-size: 48px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #3d6f9d;
+  color:  var(--paragraph-color);
   letter-spacing: 1px;
 }
 .container h4 {
   font-family: "Raleway", sans-serif;
-  color: #3d6f9d;
+  color:   var(--paragraph-color);
   margin-top: 15px;
 }

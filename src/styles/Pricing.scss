@@ -1,4 +1,4 @@
-@import "./global.scss";
+@import "./Global.scss";
 
 .price-list-container {
   margin: 20px;
@@ -21,12 +21,13 @@
       padding: 8px;
       font-size: 1rem;
       text-align: left;
+      color: var(--paragraph-color);
     }
 
     th {
-      background-color: #1977cc;
-      
+      background-color: var(--services-header-bg-color);
     }
+    
     tr:nth-child(2) td:first-child,
     tr:nth-child(15) td:first-child,
     tr:nth-child(21) td:first-child {

@@ -17,9 +17,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // tanstack query
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
+import { darkMode } from "./zustand/store";
 
 const App = () => {
+
+  const { darkTheme } = darkMode();
+
   return (
+    <div className={darkTheme && "dark"}>
     <QueryClientProvider client={queryClient}>
       <Router>
         <NavBar />
@@ -37,6 +42,7 @@ const App = () => {
         </main>
       </Router>
     </QueryClientProvider>
+    </div>
   );
 };
 

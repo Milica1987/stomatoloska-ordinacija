@@ -1,7 +1,7 @@
-@import "./global.scss";
+@import "./Global.scss";
 
 .booking-container {
-  background-color: #f1f7fd;
+  background-color: var(--booking-background);
   margin-top: 0px;
   padding-top: 15px;
 
