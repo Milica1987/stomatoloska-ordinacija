@@ -7,7 +7,7 @@ import Mailicon from "@assets/email.svg";
 
 const Contact = () => {
   return (
-    <div>
+    <div className="contactMain">
       <h2>Kontakt</h2>
       <div className="contact">
         <div className="contact-info">

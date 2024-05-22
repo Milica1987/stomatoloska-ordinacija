@@ -13,6 +13,7 @@
   --navbar-shadow: 0px 2px 15px rgba(25, 119, 204, 0.1);
   --navbar-border: 2px solid #fff;
   --booking-background:  #f1f7fd;
+  --pricing-th-color: white;
 
 }
 
@@ -26,6 +27,7 @@
   --background-image: url("@assets/background-dark.png");
   --navbar-border: 2px solid #000;
   --booking-background: #1f253c;
+  --pricing-th-color:#adb4c2;
  
 
 
@@ -118,4 +120,21 @@ main {
       outline: none;
     }
   }
+}
+
+@media (max-width: 768px) {
+
+  main {
+
+    h2 {
+      padding-left: 0px;
+      text-align: left;
+      font-size: 28px;
+    }
+
+    p {
+      text-align: left;
+    }
+  }
+
 }

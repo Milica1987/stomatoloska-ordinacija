@@ -10,10 +10,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    img {
+      padding: 30px 20px;
+      width: 45%;
+    }
   }
 
-  .pictures img {
-    padding: 30px 20px;
-    width: 45%;
+  // .pictures img {
+  //   padding: 30px 20px;
+  //   width: 45%;
+  // }
+}
+
+@media (max-width: 768px) {
+  .more-info {
+    padding-left: 20px;
+    padding-right: 20px;
+    .pictures {
+      flex-direction: column;
+
+      img {
+        padding: 0px;
+        padding-top: 20px;
+        width: 100%;
+      }
+    }
   }
 }

@@ -17,14 +17,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // tanstack query
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
-import { darkMode } from "./zustand/store";
+//import { darkMode } from "./zustand/store";
 
 const App = () => {
 
-  const { darkTheme } = darkMode();
+  // const { darkTheme } = darkMode();
 
   return (
-    <div className={darkTheme && "dark"}>
+    //<div className={darkTheme && "dark"}>
+    <div>
     <QueryClientProvider client={queryClient}>
       <Router>
         <NavBar />
@@ -37,7 +38,7 @@ const App = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/404" element={<PageNotFound />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
       </Router>

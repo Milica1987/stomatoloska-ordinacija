@@ -21,18 +21,29 @@
       padding: 8px;
       font-size: 1rem;
       text-align: left;
+    
+    }
+
+    td {
       color: var(--paragraph-color);
     }
 
     th {
+      color: var(--pricing-th-color);
       background-color: var(--services-header-bg-color);
     }
-    
+
     tr:nth-child(2) td:first-child,
     tr:nth-child(15) td:first-child,
     tr:nth-child(21) td:first-child {
       font-weight: bold;
       font-size: 1em;
     }
+  }
+}
+@media (max-width: 768px) {
+  .price-list-container {
+    margin: 0px;
+    border: none;
   }
 }

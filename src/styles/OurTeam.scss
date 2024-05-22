@@ -20,3 +20,21 @@
     margin-right: 30px;
   }
 }
+
+@media (max-width: 768px) {
+  .our-team {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .doctors {
+      flex-direction: column;
+      margin-left: 0px;
+      margin-right: 0px;
+      padding: 0px;
+    }
+
+    p {
+      text-align: left;
+    }
+  }
+}
