@@ -1,6 +1,5 @@
 import "@styles/AboutUs.scss";
 
-
 const AboutUs = () => {
   return (
     <div className="more-info">
@@ -9,7 +8,8 @@ const AboutUs = () => {
         Ordinacija Hollywood smile svoju praksu i zadovoljstvo pacijenata
         zasniva na radu sa visokokvalitetnim materijalom renomiranih
         proizvođača, digitalnoj tehnologiji i savremenom pristupu sa ciljem da
-        iz naše ordinacije izađete sa lepim osmehom i trajno rešenim problemima.<br />
+        iz naše ordinacije izađete sa lepim osmehom i trajno rešenim problemima.
+        <br />
         Ordinacija radi svakog radnog dana, uključujući rane jutarnje i kasne
         večernje sate, a svakom pacijentu obezbedili smo besplatan prvi pregled
         uz preciznu analizu zdravlja usta i zuba. Čim se saniraju urgentni
@@ -25,11 +25,8 @@ const AboutUs = () => {
       <div className="pictures">
         <img src="/about_us/ordinacija.jpeg" alt="ordinacija" />
         <img src="/about_us/ordinacija2.jpeg" alt="ordinacija2" />
-
       </div>
     </div>
-    
-    
   );
 };
 

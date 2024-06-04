@@ -43,18 +43,16 @@
   font-size: 48px;
   font-weight: 700;
   text-transform: uppercase;
-  color:  var(--paragraph-color);
+  color: var(--paragraph-color);
   letter-spacing: 1px;
 }
 .container h4 {
   font-family: "Raleway", sans-serif;
-  color:   var(--paragraph-color);
+  color: var(--paragraph-color);
   margin-top: 15px;
 }
 
-
 @media (max-width: 768px) {
-
   .welcome-container {
     background-position: calc(100% - 60%) center;
     padding: 0px;
@@ -66,10 +64,9 @@
         font-size: 30px;
       }
     }
-    a
-      {
-        margin-bottom: 20px;
-        margin-left: 20px;
-      }
+    a {
+      margin-bottom: 20px;
+      margin-left: 20px;
+    }
   }
 }

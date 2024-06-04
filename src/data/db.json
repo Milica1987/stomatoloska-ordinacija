@@ -100,6 +100,26 @@
       "service": "Popravka i lečenje zuba",
       "patient": "dsa",
       "id": 8
+    },
+    {
+      "doctorId": "2",
+      "date": "2024-06-03",
+      "phone": "32131",
+      "email": "milicapuresevic@yahoo.com",
+      "time": "11:00",
+      "service": "Skidanje kamenca i poliranje",
+      "patient": "fd ",
+      "id": 9
+    },
+    {
+      "doctorId": "2",
+      "date": "2024-06-03",
+      "phone": "sdwq",
+      "email": "milicapuresevic@yahoo.com",
+      "time": "10:00",
+      "service": "Izbeljivanje zuba",
+      "patient": "sa",
+      "id": 10
     }
   ]
 }

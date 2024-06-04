@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 //style
 import "@styles/Global.scss";
 import "@styles/OnlineBooking.scss";
@@ -6,11 +5,11 @@ import "@styles/OnlineBooking.scss";
 import "@helpers/apiService.js";
 import { useNavigate } from "react-router-dom";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 //helpers
 import { fetchAllDoctors, scheduleAppointment } from "@helpers/apiService.js";
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 import { format } from "date-fns";
 import { getAppointmentsForDoctorAndDate } from "../helpers/apiService";
@@ -29,7 +28,7 @@ const OnlineBooking = () => {
   const selectedDoctorRef = useRef();
   const selectedDateRef = useRef();
 
-  const { isError, isLoading, data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["allDoctors"],
     queryFn: fetchAllDoctors,
   });

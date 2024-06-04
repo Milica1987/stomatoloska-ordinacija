@@ -208,7 +208,10 @@ const Services = () => {
                 </p>
               </div>
               <div className="img-container">
-                <img src="/services/parodontologija.jpeg" alt="Parodontologija" />
+                <img
+                  src="/services/parodontologija.jpeg"
+                  alt="Parodontologija"
+                />
               </div>
             </>
           )}

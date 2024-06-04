@@ -4,7 +4,6 @@ import LocationIcon from "@assets/location.svg";
 import PhoneIcon from "@assets/phone.svg";
 import Mailicon from "@assets/email.svg";
 
-
 const Contact = () => {
   return (
     <div className="contactMain">
@@ -30,7 +29,7 @@ const Contact = () => {
             </button>
             <p>E-mail: hallosmile@gmail.com</p>
           </div>
-
+          
           <p>Radno vreme: od 9-17h</p>
         </div>
         <div className="map-info">
